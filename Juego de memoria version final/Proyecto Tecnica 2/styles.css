@@ -1,0 +1,472 @@
+/* Estilos generales del cuerpo del documento */
+/* 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif */
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #ffffff; /* Cambia el color del texto según tus preferencias */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    150deg,
+    #090667,
+    #353ba2,
+    #e086ea,
+    #59298c,
+    #1a5e9d
+  );
+  background-size: 400% 300%;
+  animation: BgGadient 10s ease infinite;
+  overflow: auto;
+  position: relative;
+}
+
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent; /* Color de fondo transparente */
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+  padding: 30px 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: #ffffff; /* Color del texto */
+}
+
+
+h1 {
+  text-align: center;
+}
+
+/* Animación para el fondo gradiente */
+@keyframes BgGadient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Contenedor para las burbujas animadas */
+.bubbles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Permite clics a través del contenedor de burbujas */
+  z-index: -1; /* Coloca el contenedor de burbujas detrás del contenido */
+}
+
+/* Estilos para las burbujas animadas */
+.bubbles {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Coloca las burbujas detrás del contenido y los botones */
+}
+
+/* Estilos individuales para cada burbuja */
+.bubbles span {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #4fc3dc;
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #4fc3dc44, 
+  0 0 50px #4fc3dc, 
+  0 0 100px #4fc3dc;
+  animation: animate 15s linear infinite;
+  animation-duration: calc(
+    125s / var(--i)
+  ); /* Esta variable parece no estar declarada */
+}
+
+/* Estilos para burbujas pares */
+.bubbles span:nth-child(even) {
+  background: #bbe220;
+  box-shadow: 0 0 0 10px #f4ff2d44, 0 0 50px #fffb2d, 0 0 100px #fffb2d;
+}
+
+/* Animación para las burbujas */
+@keyframes animate {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-100vh) scale(1);
+  }
+}
+
+/* Contenedor flexible */
+.container-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 200px; /* Ajusta el margen izquierdo para que vaya más a la derecha */
+  margin-right: auto; /* Puedes ajustar este valor según tus necesidades */
+
+}
+
+.container-flex_M {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 475px; /* Ajusta el margen izquierdo para que vaya más a la derecha */
+  margin-right: auto; /* Puedes ajustar este valor según tus necesidades */
+
+}
+
+/* Contenedor principal del juego de cartas */
+.board-container {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 10px; /* Espacio entre columnas */
+  background-color: rgba(243, 9, 9, 0.2);
+  border-radius: 10px;
+  border: 4px solid rgb(248, 248, 248);
+  border-radius: 10px;
+  color: rgb(4, 4, 4);
+  padding: 8px 20px;
+  box-sizing: border-box;
+  margin-right: 50px; /* Ajusta el margen derecho del juego de cartas */
+}
+
+/* Estilos para cada carta en el juego de cartas */
+.card {
+  margin-bottom: 15px; /* Espacio entre filas */
+  margin-right: 100px; /* Agrega espacio a la derecha de cada carta */
+  width: 100px;
+  height: 150px;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+  background-image: url(images/fondo_maybe.jpg);
+  background-size: cover; /* Otra opción puede ser "contain" según tus preferencias */
+  background-position: center; /* Ajusta la posición de la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+/* Estilos para cartas volteadas en el juego de cartas */
+.card.flipped {
+  transform: rotateY(180deg);
+  opacity: 0.8;
+}
+
+/* Contenedor principal para la sección de información de un solo jugador */
+.board-container-single {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 10px;
+  background-color: rgba(240, 236, 236, 0.2);
+  border-radius: 10px;
+  border: 4px solid rgb(248, 248, 248);
+  border-radius: 10px;
+  color: rgb(4, 4, 4);
+  padding: 8px 20px;
+  box-sizing: border-box;
+  margin-right: 10px; /* Ajusta el margen según tus preferencias */
+}
+
+/* Estilos para la sección de información de un solo jugador */
+.singler {
+  border: 3px solid rgb(11, 11, 11);
+  border-radius: 12px;
+  padding: 5px; /* Ajusta el relleno según tus preferencias */
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  width: 150px; /* Ajusta el ancho según tus preferencias */
+  height: 200px; /* Ajusta la altura según tus preferencias */
+  background-color: rgba(116, 154, 237, 0.2);
+  border-radius: 10px;
+}
+
+/* Estilos para las secciones de información en el juego multijugador */
+.info-section1,
+.info-section2 {
+  border: 3px solid rgb(11, 11, 11);
+  border-radius: 12px;
+  padding: 5px; /* Ajusta el relleno según tus preferencias */
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  width: 150px; /* Ajusta el ancho según tus preferencias */
+  height: 200px; /* Ajusta la altura según tus preferencias */
+  background-color: rgba(116, 154, 237, 0.2);
+  margin-bottom: 20px; /* Agrega espacio vertical debajo de los elementos */
+  margin-top: 50px; /* Agrega espacio vertical encima de los elementos */
+  margin-left: 10px; /* Agrega un espacio entre elementos */
+}
+
+
+
+/* Estilos para los botones del juego */
+button {
+  width: 200px; /* Puedes ajustar este valor según tus necesidades */
+  padding: 20px 0; /* Ajusta el padding según tus necesidades */
+  margin:  10px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase !important;
+  letter-spacing: 2px;
+  color: #000;
+  cursor: pointer;
+  text-align: center;
+  text-transform: capitalize;
+  border-radius: 0px;
+  position: relative;
+  overflow: hidden !important;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: transparent !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* Estilos adicionales para los botones al pasar el ratón */
+button:hover {
+  border: 1px solid transparent;
+  color: #000000 !important;
+}
+
+/* Estilos para el efecto de fondo de los botones */
+button::before,
+button::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0%;
+  top: 0;
+  z-index: -12;
+  opacity: 1;
+  -webkit-transition: all 0.65s cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: all 0.65s cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: all 0.65s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.65s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Estilos adicionales para el efecto de fondo antes del hover */
+button::before {
+  background: #0808c7;
+  
+}
+
+/* Estilos adicionales para el efecto de fondo después del hover */
+button::after {
+  background: #ffd700;
+  
+}
+
+
+/* Estilos adicionales para el efecto de fondo al pasar el ratón */
+button:hover::before,
+button:hover::before {
+  opacity: 1;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+/* Estilos adicionales para el efecto de fondo al pasar el ratón */
+button:hover::after,
+button:hover::after {
+  opacity: 1;
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+/* Contenedor flex para la sección inferior del juego */
+#bottom-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+/* Estilos para las estadísticas del juego (score, moves, timer) */
+#score,
+#moves,
+#timer {
+  margin-bottom: 10px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Estilos adicionales para el temporizador */
+#timer {
+  color: #ff0000; /* Cambia el color del temporizador según tus preferencias */
+}
+
+#timer_Multijugador {
+  margin-bottom: 100px;
+  margin-top: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+
+#timer_Multijugador {
+  color: #ff0000; /* Cambia el color del temporizador según tus preferencias */
+  height: 50px; /* Cambia la altura según tus preferencias */
+  width: 100px; /* Cambia el ancho según tus preferencias */
+}
+
+/* Agrega este estilo a tu hoja de estilo CSS */
+.current-player {
+  border: 2px solid #ff0000; /* Cambia el color del borde según tus preferencias */
+}
+
+h2{
+  text-align: center;
+  font-size: 15px;
+  color: #000000;
+}
+
+/* Estilos del GIF */
+#mi-gif {
+  width: 20%; /* O ajusta el ancho según tus necesidades */
+  height: 25%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: 60px;
+  left: 450px;
+}
+
+#mi-gif_2 {
+  width: 10%; /* O ajusta el ancho según tus necesidades */
+  height: 13%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: 100px;
+  left:1100px;
+}
+
+#mi-gif_3 {
+  width: 5%; /* O ajusta el ancho según tus necesidades */
+  height: 10%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: 355px;
+  left: 847px;
+}
+
+#mi-gif_4 {
+  width: 5%; /* O ajusta el ancho según tus necesidades */
+  height: 10%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: 355px;
+  left: 610px;
+}
+
+
+#mi-gif_5 {
+  width: 5%; /* O ajusta el ancho según tus necesidades */
+  height: 10%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: 435px;
+  left: 847px;
+}
+
+#mi-gif_6 {
+  width: 5%; /* O ajusta el ancho según tus necesidades */
+  height: 10%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: 435px;
+  left: 610px;
+}
+
+
+#mi-gif_7 {
+  width: 10%; /* O ajusta el ancho según tus necesidades */
+  height: 15%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: 650px;
+  left: 1100px;
+}
+
+
+#mi-gif_8 {
+  width: 80%; /* O ajusta el ancho según tus necesidades */
+  height: 70%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: 320px;
+  left: 400px;
+}
+
+#mi-gif_9 {
+  width: 100%; /* O ajusta el ancho según tus necesidades */
+  height: 120%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: 130px;
+  left: -350px;
+}
+
+
+#mi-gif_10 {
+  width: 20%; /* O ajusta el ancho según tus necesidades */
+  height: 15%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: -200px;
+  left: 430px;
+}
+
+#mi-gif_11 {
+  width: 20%; /* O ajusta el ancho según tus necesidades */
+  height: 15%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: -50px;
+  left: 125px;
+}
+
+#mi-gif_12 {
+  width: 100%; /* O ajusta el ancho según tus necesidades */
+  height: 90%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: 10px;
+  left: -300px;
+}
+
+#mi-gif_13 {
+  width: 50%; /* O ajusta el ancho según tus necesidades */
+  height: 30%; /* O ajusta la altura según tus necesidades */
+  position: absolute;
+  top: -80px;
+  left: 100px;
+}
+
+
+p{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 24px;
+  margin-left: 70px ;
+}
